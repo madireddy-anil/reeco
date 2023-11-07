@@ -1,0 +1,18 @@
+.overView-wrapper {
+  /* display: flex; */
+  border: 2px solid #f4f0f0;
+  border-radius: 7px;
+  justify-content: space-around;
+  margin: 25px 0 25px 0;
+  padding: 25px;
+  background: var(--white);
+}
+
+.divider-wrapper {
+  border-left: 1px solid grey;
+  height: 100%;
+}
+
+.ui.grid {
+  padding-left: 3rem;
+}

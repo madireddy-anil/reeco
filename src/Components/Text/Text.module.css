@@ -1,0 +1,67 @@
+.Text {
+  letter-spacing: 0.3px;
+}
+.default {
+  font-size: 14px;
+}
+.xsmall {
+  font-size: 12px;
+}
+.xxsmall {
+  font-size: 10px;
+}
+.small {
+  font-size: 13px;
+}
+.medium {
+  font-size: 16px;
+}
+.large {
+  font-size: 18px;
+}
+.xlarge {
+  font-size: 20px;
+}
+.xxlarge {
+  font-size: 24px;
+}
+.regular {
+  font-weight: normal;
+}
+.bold {
+  font-weight: bold;
+}
+.bolder {
+  font-weight: bolder;
+}
+.thin {
+  font-weight: lighter;
+}
+.lighter {
+  font-weight: lighter;
+  color: var(--font-secondary);
+}
+.Text--dark {
+  color: var(--white);
+}
+.Text--light {
+  color: var(--neutral-800);
+}
+
+@media (min-width: 567px) and (max-width: 1089px) {
+  .default {
+    font-size: 12px;
+  }
+  .medium {
+    font-size: 14px;
+  }
+  .large {
+    font-size: 16px;
+  }
+  .xlarge {
+    font-size: 18px;
+  }
+  .xxlarge {
+    font-size: 20px;
+  }
+}

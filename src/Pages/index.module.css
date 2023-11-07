@@ -1,0 +1,10 @@
+.main {
+  height: 100vh;
+  margin: 0 8rem 0 7rem;
+}
+
+.product-status {
+  display: flex;
+  padding: 18px;
+  justify-content: space-around;
+}
