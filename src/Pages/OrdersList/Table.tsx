@@ -5,6 +5,7 @@ import StatusModal from './StatusModal'
 import { useDispatch } from 'react-redux'
 import { updateProductStatus } from '../../config/reecoSlice'
 import { useAppSelector } from '../../redux/hooks/store'
+import { Text } from '../../Components/Text/Text'
 
 export let product: any = {
   id: '1',
@@ -22,6 +23,7 @@ const TableExampleBasic: React.FC<any> = ({ products }) => {
   const [type, modalType] = useState<string>('')
   const [selectedStatus, setSelectedStatus] = useState<string | undefined>('')
   const reeco = useAppSelector(state => state.reeco)
+  const spacer = <span style={{ marginLeft: '10px' }} />
 
   const [selectedId, setSelectedId] = useState<any>()
 
@@ -75,7 +77,7 @@ const TableExampleBasic: React.FC<any> = ({ products }) => {
             <Table.HeaderCell>Price</Table.HeaderCell>
             <Table.HeaderCell>Quantity</Table.HeaderCell>
             <Table.HeaderCell>Total</Table.HeaderCell>
-            <Table.HeaderCell>Status</Table.HeaderCell>
+            <Table.HeaderCell textAlign='center'>Status</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -88,7 +90,7 @@ const TableExampleBasic: React.FC<any> = ({ products }) => {
                     <img
                       src={process.env.PUBLIC_URL + `images/test2.jpg`}
                       alt='aa'
-                      style={{ marginLeft: '10%', width: '60px', height: '60px' }}
+                      style={{ width: '60px', height: '60px' }}
                     />
 
                     {product.productName}
@@ -98,41 +100,45 @@ const TableExampleBasic: React.FC<any> = ({ products }) => {
                 <Table.Cell>{product.price}</Table.Cell>
                 <Table.Cell>{product.quantity}</Table.Cell>
                 <Table.Cell>{product.total}</Table.Cell>
-                <div className={style['product-status']}>
-                  {product?.status && <Button color={getStatusColor(product.status)}>{product?.status}</Button>}
-                  <span style={{ marginTop: '6px' }}>
-                    <Icon
-                      size='large'
-                      name='checkmark'
-                      onClick={() => {
-                        setOpen(true)
-                        modalType('check')
-                        handleCheck(product, index)
-                      }}
-                    />
-                  </span>
-                  <span style={{ marginTop: '6px' }}>
-                    <Icon
-                      size='large'
-                      name='close'
-                      onClick={() => {
-                        setOpen(true)
-                        modalType('close')
-                        handleClose(product, index)
-                      }}
-                    />
-                  </span>
-                  <Button
-                    basic
-                    color='green'
-                    // onClick={() => {
-                    //   product.id = new Date().getTime() / 1000
-                    //   dispatch(addProduct(product))
-                    // }}
-                  >
-                    Edit
-                  </Button>
-                </div>
+                <Table.Cell textAlign='right'>
+                  <div className={style['product-status']}>
+                    {product?.status && (
+                      <Button circular color={getStatusColor(product.status)}>
+                        {product?.status}
+                      </Button>
+                    )}
+                    {spacer}
+                    <span style={{ marginTop: '6px' }}>
+                      <Icon
+                        size='large'
+                        name='checkmark'
+                        onClick={() => {
+                          setOpen(true)
+                          modalType('check')
+                          handleCheck(product, index)
+                        }}
+                        color={product.status === 'Approved' ? 'green' : undefined}
+                      />
+                    </span>
+                    {spacer}
+                    <span style={{ marginTop: '6px' }}>
+                      <Icon
+                        size='large'
+                        name='close'
+                        onClick={() => {
+                          setOpen(true)
+                          modalType('close')
+                          handleClose(product, index)
+                        }}
+                        color={product.status !== 'Approved' ? getStatusColor(product.status) : undefined}
+                      />
+                    </span>
+                    {spacer}
+                    <div style={{ marginTop: '9px' }}>
+                      <Text weight='bold'>Edit</Text>
+                    </div>
+                  </div>
+                </Table.Cell>
               </Table.Row>
             </Table.Body>
           )
