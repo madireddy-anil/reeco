@@ -1,0 +1,13 @@
+.orderList-wrapper {
+  border: 2px solid #f4f0f0;
+  background: var(--white);
+  min-height: 35rem;
+  border-radius: 7px;
+  padding: 40px;
+}
+
+.orderList-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 25px 0;
+}

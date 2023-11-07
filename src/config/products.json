@@ -1,0 +1,11 @@
+{
+  "product": {
+    "id": "1",
+    "productName": "Lorem Ipsum",
+    "brand": "brand 0001",
+    "price": "10",
+    "quantity": "10*10",
+    "total": "10",
+    "status": ""
+  }
+}
